@@ -35,8 +35,8 @@ CREATE TABLE forecast (
 ## Example:
 ```
 docker run --rm -ti \
-  -e PGHOST=192.168.1.12 -e PGHOST=yourpostgreshost -e PGUSER=postgres -e PGPASSWORD=YourPassword \
-  -e PGDATABASE=hubitat -e PGPORT=5432 -e INTERVAL=1800 -e LATITUDE=40.70098574912939 -e LONGITUDE=-73.9837906003035 entmike/noaa-datacollector
+  -e PGHOST=yourpostgreshost -e PGPORT=5432 -e PGDATABASE=hubitat -e PGUSER=postgres -e PGPASSWORD=YourPassword \
+  -e INTERVAL=1800 -e LATITUDE=40.70098574912939 -e LONGITUDE=-73.9837906003035 entmike/noaa-datacollector
 ```
 
 Environment Variables:
