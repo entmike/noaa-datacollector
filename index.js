@@ -8,7 +8,7 @@ const LONGITUDE = process.env.LONGITUDE || -73.9837906003035
 const INTERVAL = process.env.INTERVAL || 1800
 let url
 
-console.log(`Getting Forecast URL for lat/lng: ${LATITUDE},${LONGITUDE}...`)
+// Poll Function
 const pollNOAA = () => {
   axios
     .get(url)
@@ -67,7 +67,8 @@ const pollNOAA = () => {
 
   console.log(url)
 }
-// Make a request for a user with a given ID
+
+console.log(`Getting Forecast URL for lat/lng: ${LATITUDE},${LONGITUDE}...`)
 axios
   .get(`https://api.weather.gov/points/${LATITUDE},${LONGITUDE}`)
   .then((response) => {
@@ -86,6 +87,6 @@ axios
     setInterval(pollNOAA, INTERVAL * 1000)
   })
   .catch(function (error) {
-    // handle error
+    // Report error
     console.log(error)
   })
