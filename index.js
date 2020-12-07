@@ -24,17 +24,6 @@ const pollNOAA = () => {
       }
     })
     .then((data) => {
-      const header = []
-      const AoA = []
-      data.forEach((obj) => {
-        Object.keys(obj).forEach(
-          (key) => header.includes(key) || header.push(key)
-        )
-        const thisRow = new Array(header.length)
-        header.forEach((col, i) => (thisRow[i] = obj[col] || ''))
-        AoA.push(thisRow)
-      })
-      // AoA.unshift(header)
       const client = new Client()
       client.connect().then(() => {
         // console.log(data)
@@ -61,7 +50,7 @@ const pollNOAA = () => {
           INSERT INTO forecast 
               (number, name, "startTime", "endTime", "isDaytime", temperature, "temperatureUnit", "temperatureTrend", "windSpeed", "windDirection",
               icon, "shortForecast", "detailedForecast")
-              VALUES ${s}` // Replace double quotes with singular ones.}`,
+              VALUES ${s}`
 
         client
           .query(query)
